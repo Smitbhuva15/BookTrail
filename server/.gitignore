@@ -1,6 +1,5 @@
-
-
-#Secret
 .env
+node_modules
+
 
 
