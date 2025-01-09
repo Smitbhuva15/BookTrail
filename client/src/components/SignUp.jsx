@@ -121,7 +121,7 @@ const SignUp = () => {
                 <input
                   type="text"
                   placeholder="Enter your fullname"
-                  className="w-80 px-3 py-1 border rounded-md outline-none dark:text-black"
+                  className="sm:w-80 xs:w-60 w-48  px-3 py-1 border rounded-md outline-none dark:text-black"
                   name="name"
                   id="name"
                   {...register("name")} 
@@ -132,7 +132,7 @@ const SignUp = () => {
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="sm:w-80 px-3 py-1 border rounded-md outline-none dark:text-black"
+                    className="sm:w-80 xs:w-60 w-48 px-3 py-1 border rounded-md outline-none dark:text-black"
                     name="email"
                     id="email"
                     {...register("email")} 
@@ -145,7 +145,7 @@ const SignUp = () => {
                     <input
                       type="password"
                       placeholder="Enter your password"
-                      className="sm:w-80 px-3 py-1 border rounded-md outline-none dark:text-black"
+                      className="sm:w-80 xs:w-60 w-48 px-3 py-1 border rounded-md outline-none dark:text-black"
                       id="password"
                       name="password"
                       {...register("password")} 

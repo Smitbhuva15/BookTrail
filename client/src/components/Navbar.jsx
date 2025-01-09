@@ -1,12 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context_store/Authcontext";
+import { AiOutlineMenu } from "react-icons/ai";
+import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
   const [sticky, setSticky] = useState();
 
   const storedTheme = localStorage.getItem("theme") || "light";
   const [theme, setTheme] = useState(storedTheme);
+  const [nav, setNav] = useState(false);
+
+  const toggleMenu = () => {
+    setNav(!nav);
+  }
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -46,9 +53,11 @@ const Navbar = () => {
     };
   }, []);
 
+  // const[toggle,setToggle]= useState(false);
+
   const navItems = (
     <>
-      <li>
+      <li >
         <Link to="/">Home</Link>
       </li>
       <li>
@@ -60,42 +69,43 @@ const Navbar = () => {
     </>
   );
 
+
+
+
   const { isLogIn, Logoutuser } = useContext(AuthContext);
 
   return (
     <div
       className={`max-w-screen-2xl container mx-auto md:px-20  px-4 fixed top-0 dark:bg-slate-900 dark:text-white left-0 right-0 z-50
-      ${
-        sticky
+      ${sticky
           ? "sticky-navbar  shadow-md bg-base-200 dark:bg-slate-700 duration-300 transition-all ease-in-out"
           : ""
-      } `}
+        } `}
     >
       <div className="navbar ">
         <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
+        <div className="dropdown">
+            {/* Hamburger menu for small screen */}
+            <div role="button" className="btn btn-ghost lg:hidden" onClick={toggleMenu}>
+              {nav ? <IoClose /> : <AiOutlineMenu />}
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              {navItems}
-            </ul>
+
+            {/* Menu items for mobile view */}
+            {nav && (
+                <div className=" lg:hidden border absolute top-14 bg-gradient-to-rshadow rounded-box bg-indigo-600 dark:bg-indigo-600 dark:text-white w-52 z-50  px-28 py-8 ">
+                  <div className="flex flex-col items-center space-y-1 list-none">
+                  <li >
+        <Link to="/"  onClick={toggleMenu}>Home</Link>
+      </li>
+      <li>
+        <Link to="/course" onClick={toggleMenu}>Course</Link>
+      </li>
+      <li>
+        <Link to="/contact" onClick={toggleMenu}>Contact</Link>
+      </li>
+                  </div>
+                </div>
+              )}
           </div>
           <Link
             to="/"

@@ -11,7 +11,7 @@ const Course = () => {
 useEffect(() => {
   const fetchingdata=async()=>{
     try {
-      const response = await fetch("/book", {
+      const response = await fetch("https://booktrail-zid0.onrender.com/book", {
         method: "GET",
       });
      const data=await response.json()

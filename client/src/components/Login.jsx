@@ -100,7 +100,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="sm:w-80 px-3 py-1 border rounded-md outline-none dark:text-black"
+                className="sm:w-80 px-3 w-48 xs:w-60 py-1 border rounded-md outline-none dark:text-black"
                 id="email"
                 {...register("email")} 
               />
@@ -111,7 +111,7 @@ const Login = () => {
                 <input
                   type="password"
                   placeholder="Enter your password"
-                  className="sm:w-80 px-3 py-1 border rounded-md outline-none  dark:text-black"
+                  className="sm:w-80 xs:w-60 w-48 px-3 py-1 border rounded-md outline-none  dark:text-black"
                   id="password"
                   {...register("password")} 
                 />
