@@ -1,6 +1,6 @@
 
 
-exports.AuthControl = (req, res) => {
+exports.authcontrol = (req, res) => {
 
     try {
         const userdata = req.user;
