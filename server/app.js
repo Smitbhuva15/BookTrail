@@ -8,12 +8,14 @@ const PORT = process.env.PORT || 3000;
 const dbURI = process.env.MONGODB_URI;
 const cors = require("cors"); 
 const { userRoutes } = require("./router/userrouters");
+const { contactRouter } = require("./router/Contactrouter");
 
 app.use(cors());
 app.use(express.json())
 
 app.use(bookRouter)
 app.use(userRoutes)
+app.use(contactRouter)
 
 
 
