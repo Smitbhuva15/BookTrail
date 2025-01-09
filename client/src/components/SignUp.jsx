@@ -48,10 +48,18 @@ const SignUp = () => {
             body : JSON.stringify(data)
 
           })
+          console.log(response);
           if(response.ok){
-            const res_data=await response.json();
-            // console.log(res_data);
+          const res_data = await response.json();
+           toast.success(res_data.message);
             // localStorage.setItem("token",res_data.token);
+            setTimeout(() => {
+              navigate('/login')
+            }, 2000);
+          }
+          else{
+            const errorData = await response.json();
+           toast.error(errorData.message);
           }
           
          } catch (error) {
@@ -59,14 +67,14 @@ const SignUp = () => {
          }  
 
 
-        navigate("/login"); 
+      
       };
   
 
-      const closeModalsignup = () => {
-        e.preventDefault();
-        navigate("/login"); 
-      };
+      // const closeModalsignup = (e) => {
+      //   e.preventDefault();
+      //   navigate("/login"); 
+      // };
 
        React.useEffect(() => {
           if (errors.email) {
@@ -160,7 +168,7 @@ const SignUp = () => {
                   <div>
                     <button
                       className="bg-indigo-600 text-white rounded-md px-3 py-1 mt-1 hover:bg-indigo-700 duration-200"
-                      onClick={closeModalsignup}
+                    
                     >
                       Sing up
                     </button>

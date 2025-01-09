@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../context_store/Authcontext'
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
 
 const{userData}= useContext(AuthContext);
 const username=userData.name||"";
-
+const useremail=userData.email||"";
    
   return (
     <div className='max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row'>
@@ -31,14 +32,14 @@ const username=userData.name||"";
                 <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
                 <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
               </svg>
-              <input type="text" className="grow dark:text-black" placeholder="Email"  />
+              <input type="text" className="grow dark:text-black" placeholder="Email" defaultValue={useremail} />
             </label>
-            
-          </div>
+            </div>
+          <Link to='course'>
           <button className="btn mt-6 bg-indigo-600 hover:bg-indigo-700 text-black">Get Started</button>
-        </div>
+          </Link>
         
-
+          </div>
 
 
         {/* right section */}

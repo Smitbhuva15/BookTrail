@@ -33,8 +33,7 @@ const schema = yup.object({
 
 const Contact = () => {
   const {userData}=useContext(AuthContext)
-  const emailValue=userData.email||"";
-  const namevalue=userData.name||"";
+  
   const navigate=useNavigate();
 
    
@@ -42,9 +41,25 @@ const Contact = () => {
         resolver: yupResolver(schema), 
       });
      
-     const onSubmit = (data) => {
+     const onSubmit =async (data) => {
        console.log(data); 
        toast.success("Send Detail Successfully! ");
+       try {
+        const response= await fetch("http://localhost:5000/contact",{
+          method :"POST",
+          headers :{
+            "Content-Type":"application/json",
+          },
+          body :JSON.stringify(data)
+        })
+        if(response.ok){
+          const res= await response.JSON();
+          console.log(res);
+        }
+        
+       } catch (error) {
+        console.log("POST CONTACT DATA ERROR",error)
+       }
 
        setTimeout(() => {
         navigate('/');
