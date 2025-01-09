@@ -18,7 +18,7 @@ export const AuthProvider=({children})=>{
 
     const authorizeUserData=async ()=>{
         try {
-            const response=await fetch("http://localhost:5000/Api/user",{
+            const response=await fetch("https://booktrail-zid0.onrender.com/Api/user",{
                 method:"GET",
                 headers:{
                     "Authorization":`Bearer ${token}`,

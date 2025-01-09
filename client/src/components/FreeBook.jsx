@@ -13,7 +13,7 @@ const[list,setList] =useState([]);
 useEffect(() => {
   const fetchingdata=async()=>{
     try {
-      const response = await fetch("http://localhost:5000/book", {
+      const response = await fetch("https://booktrail-zid0.onrender.com/book", {
         method: "GET",
       });
      const data=await response.json()

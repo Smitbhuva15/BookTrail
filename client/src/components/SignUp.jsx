@@ -40,7 +40,7 @@ const SignUp = () => {
       const onSubmit = async(data) => {
          setData(data) 
          try {
-          const response= await fetch("http://localhost:5000/user/signup",{
+          const response= await fetch("https://booktrail-zid0.onrender.com/user/signup",{
             method:"POST",
             headers :{
               "Content-type":"application/json"
